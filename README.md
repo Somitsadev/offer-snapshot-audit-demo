@@ -1,35 +1,21 @@
 # Offer Snapshot Audit
 
-Offer Snapshot Audit is a static demonstration of a narrow offline diagnostic for investigating price and availability differences between a normalized product export and saved product-page HTML.
+This sample report shows a price mismatch between a product list and a saved shop page. The checking software itself is not included.
 
-The examples use fictional products and the reserved `.test` host. No live site, account or customer data is involved.
+To view the example:
 
-## What the example shows
+1. On GitHub, choose **Code > Download ZIP**.
+2. Extract the ZIP file.
+3. Open [sample-report/report.html](sample-report/report.html) in a browser, or open [report.json](sample-report/report.json) for raw results.
 
-The supported input is:
+The sample compares a CSV with saved product-page HTML. For example, the CSV says **10.00 EUR**, while the page says **12.00 EUR**: the report marks **MISMATCH**. Missing or unclear page information is **UNKNOWN**; invalid CSV rows are **INVALID_INPUT**.
 
-- one CSV with the exact header `id,link,price,currency,availability`;
-- one saved HTML file per row at `pages/<id>.html`;
-- JSON-LD structured data containing a Product and one unambiguous Offer.
+The sample is fictional and uses the reserved `.test` domain. It does not fetch live pages, change your product list or shop, run JavaScript, access Merchant Center/accounts, or prove Google approval.
 
-The comparison checks price, currency and availability in the supplied files and produces evidence suitable for JSON and HTML reporting. Clear equality is **MATCH**, a clear difference is **MISMATCH**, missing or ambiguous page evidence is **UNKNOWN**, and malformed required feed rows are **INVALID_INPUT**.
+This is only a static example. The software is not public here; there is no checkout or software licence grant.
 
-This repository is a static worked example, not runnable software. The executable beta is separate and is not included here; this repository has no checkout or software license grant. To view the formatted report, choose **Code → Download ZIP**, extract the archive, and open `sample-report/report.html` in your browser. GitHub shows [report.html](sample-report/report.html) as source code. You can inspect [report.json](sample-report/report.json) directly for machine-readable results. The sample inputs and expected classifications are in [samples/input](samples/input) and [docs/expected-results.md](docs/expected-results.md).
+See the [input contract](docs/input-contract.md) and [expected results](docs/expected-results.md) for details.
 
-## Limits
+To share feedback, use [New issue > Synthetic workflow feedback](https://github.com/Somitsadev/offer-snapshot-audit-demo/issues/new/choose). Tell us what you do now to compare a product list with a shop page, and whether preparing these files for an offline report would be useful. Use invented values only; do not upload files or include private data, live URLs, credentials or customer information.
 
-The diagnostic does not:
-
-- fetch URLs or make network requests;
-- access Merchant Center, Search Console, accounts or credentials;
-- execute JavaScript or test rendered, checkout, geo, device, shipping or regional behavior;
-- infer values when page evidence is absent or ambiguous;
-- promise a Google diagnosis, approval, ranking, eligibility or revenue result.
-
-A **MATCH** means that the supported values in the supplied snapshots agree under the documented rules. It is not evidence that Google will accept or reapprove a product. See the [input contract](docs/input-contract.md) for the supported field and classification rules.
-
-## Feedback
-
-If you have a first-hand workflow involving this kind of mismatch, you can request beta access or suggest a useful feature through [New issue → Synthetic workflow feedback](https://github.com/Somitsadev/offer-snapshot-audit-demo/issues/new/choose). Describe the problem and general workflow using synthetic values only. Do not upload files or include live URLs, product IDs, customer information, credentials, account details or copied page source.
-
-Offer Snapshot Audit is not affiliated with Google, Merchant Center or any referenced platform.
+Offer Snapshot Audit is not affiliated with Google or Merchant Center.
