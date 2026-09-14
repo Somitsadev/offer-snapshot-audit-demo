@@ -1,5 +1,5 @@
 name: Synthetic workflow feedback
-description: Tell us about a first-hand feed/page mismatch workflow using synthetic examples only.
+description: Tell us about your feed/page mismatch workflow using invented examples only.
 title: "[Feedback] "
 labels:
   - feedback
@@ -7,55 +7,18 @@ body:
   - type: markdown
     attributes:
       value: |
-        Please describe the workflow, not private data. Do not upload files or include live URLs, product IDs, customer information, credentials, account details, or copied page source. Use invented values such as demo-123 and shop.test.
+        Use invented values such as demo-123 and shop.test. Do not upload files or include live URLs, private data, credentials, account details or customer information.
   - type: textarea
     id: first_hand_problem
     attributes:
-      label: First-hand problem
-      description: What mismatch or investigation have you personally had to understand?
-      placeholder: "Example: I had to compare a feed price with page markup after a price mismatch warning."
+      label: Your workflow
+      description: What do you do now to check a feed against a product page, and would preparing these files for an offline report be useful?
+      placeholder: "Example: I compare the feed price with saved page markup and write down differences."
     validations:
       required: true
   - type: input
     id: time_cost
     attributes:
-      label: Approximate time
-      description: About how long did the manual check take, in minutes or hours?
+      label: Approximate time (optional)
+      description: About how long does your manual check take?
       placeholder: "Example: 45 minutes"
-    validations:
-      required: true
-  - type: textarea
-    id: current_workflow
-    attributes:
-      label: Current workflow
-      description: Describe the tools and steps in general terms. Use fictional identifiers only.
-      placeholder: "Example: export five fields, open saved HTML, inspect JSON-LD, record differences in a spreadsheet."
-    validations:
-      required: true
-  - type: textarea
-    id: useful_feature
-    attributes:
-      label: Most useful feature
-      description: What output or workflow change would make this more useful?
-      placeholder: "Example: a clear reason for UNKNOWN or a CI-friendly JSON result."
-    validations:
-      required: true
-  - type: dropdown
-    id: data_source
-    attributes:
-      label: Synthetic test data
-      description: What can you safely use for a public example?
-      options:
-        - Invented CSV and saved HTML only
-        - Existing public documentation example, paraphrased
-        - I cannot provide a public example
-    validations:
-      required: true
-  - type: checkboxes
-    id: safety_confirmation
-    attributes:
-      label: Data safety
-      options:
-        - label: I confirm that this issue contains no live URLs, private data, credentials, account information, uploads, or copied customer page source.
-          required: true
-
