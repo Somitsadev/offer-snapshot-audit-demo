@@ -14,7 +14,7 @@ The supported input is:
 
 The comparison checks price, currency and availability in the supplied files and produces evidence suitable for JSON and HTML reporting. Clear equality is **MATCH**, a clear difference is **MISMATCH**, missing or ambiguous page evidence is **UNKNOWN**, and malformed required feed rows are **INVALID_INPUT**.
 
-This repository is a static worked example, not runnable software. The executable beta is separate and is not included here; this repository has no checkout or software license grant. To inspect the example, open [report.html](sample-report/report.html) in a browser or download [report.json](sample-report/report.json) for machine-readable results. The sample inputs and expected classifications are in [samples/input](samples/input) and [docs/expected-results.md](docs/expected-results.md).
+This repository is a static worked example, not runnable software. The executable beta is separate and is not included here; this repository has no checkout or software license grant. To view the formatted report, choose **Code → Download ZIP**, extract the archive, and open `sample-report/report.html` in your browser. GitHub shows [report.html](sample-report/report.html) as source code. You can inspect [report.json](sample-report/report.json) directly for machine-readable results. The sample inputs and expected classifications are in [samples/input](samples/input) and [docs/expected-results.md](docs/expected-results.md).
 
 ## Limits
 
@@ -30,6 +30,6 @@ A **MATCH** means that the supported values in the supplied snapshots agree unde
 
 ## Feedback
 
-If you have a first-hand workflow involving this kind of mismatch, you can request beta access or suggest a useful feature through the [feedback issue form](.github/ISSUE_TEMPLATE/feedback.yml), when enabled. Describe the problem and general workflow using synthetic values only. Do not upload files or include live URLs, product IDs, customer information, credentials, account details or copied page source.
+If you have a first-hand workflow involving this kind of mismatch, you can request beta access or suggest a useful feature through [New issue → Synthetic workflow feedback](https://github.com/Somitsadev/offer-snapshot-audit-demo/issues/new/choose). Describe the problem and general workflow using synthetic values only. Do not upload files or include live URLs, product IDs, customer information, credentials, account details or copied page source.
 
 Offer Snapshot Audit is not affiliated with Google, Merchant Center or any referenced platform.
