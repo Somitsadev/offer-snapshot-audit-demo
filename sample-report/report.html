@@ -1,0 +1,182 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><title>Offer Snapshot Audit diagnostic report</title><style>body{font:15px system-ui,sans-serif;max-width:1200px;margin:2rem auto;padding:0 1rem}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:900px}th,td{border:1px solid #ccc;padding:.4rem;text-align:left;vertical-align:top}th{background:#f1f3f5}pre{background:#f6f6f6;padding:1rem;overflow:auto;white-space:pre-wrap}.caveat{background:#fff8e1;border-left:4px solid #d99b00;padding:.7rem}</style></head><body><h1>Offer Snapshot Audit diagnostic report</h1><p><strong>Analysis UTC:</strong> 2026-09-14T09:15:37.250052Z</p><p class='caveat'><strong>Scope and capture caveat:</strong> Offline analysis of supplied files only. No network fetch, JavaScript execution, visual checkout test, geo/device test, or Google approval check was performed.</p><p>Counts: {&quot;INVALID_INPUT&quot;: 0, &quot;MATCH&quot;: 1, &quot;MISMATCH&quot;: 1, &quot;UNKNOWN&quot;: 2}</p><div class='table-wrap'><table><thead><tr><th>ID</th><th>Status</th><th>Feed price</th><th>Feed currency</th><th>Feed availability</th><th>Structured price</th><th>Structured currency</th><th>Structured availability</th><th>Finding/reason</th></tr></thead><tbody><tr><td>match</td><td>MATCH</td><td>19.9</td><td>EUR</td><td>in_stock</td><td>19.9</td><td>EUR</td><td>in_stock</td><td></td></tr><tr><td>mismatch</td><td>MISMATCH</td><td>10</td><td>EUR</td><td>in_stock</td><td>12</td><td>EUR</td><td>in_stock</td><td>price</td></tr><tr><td>ambiguous</td><td>UNKNOWN</td><td>4</td><td>EUR</td><td>out_of_stock</td><td></td><td></td><td></td><td>ambiguous_offer_match</td></tr><tr><td>unknown</td><td>UNKNOWN</td><td>3</td><td>EUR</td><td>in_stock</td><td></td><td></td><td></td><td>no_exact_product_match</td></tr></tbody></table></div><details><summary>Escaped evidence JSON</summary><pre>{
+  &quot;version&quot;: &quot;0.1.0-beta.1&quot;,
+  &quot;schema_version&quot;: &quot;1.0&quot;,
+  &quot;generated_at_utc&quot;: &quot;2026-09-14T09:15:37.250052Z&quot;,
+  &quot;capture_caveat&quot;: &quot;Offline analysis of supplied files only. No network fetch, JavaScript execution, visual checkout test, geo/device test, or Google approval check was performed.&quot;,
+  &quot;input_contract&quot;: {
+    &quot;columns&quot;: [
+      &quot;id&quot;,
+      &quot;link&quot;,
+      &quot;price&quot;,
+      &quot;currency&quot;,
+      &quot;availability&quot;
+    ],
+    &quot;page_mapping&quot;: &quot;pages/&lt;id&gt;.html&quot;,
+    &quot;availability_case_normalization&quot;: &quot;feed values are trimmed/lowercased; page schema.org values are mapped per documented aliases&quot;
+  },
+  &quot;limits&quot;: {
+    &quot;max_feed_bytes&quot;: 10485760,
+    &quot;max_page_bytes&quot;: 5242880,
+    &quot;max_total_page_bytes&quot;: 104857600,
+    &quot;max_rows&quot;: 5000,
+    &quot;max_jsonld_bytes&quot;: 2097152
+  },
+  &quot;summary&quot;: {
+    &quot;counts&quot;: {
+      &quot;MATCH&quot;: 1,
+      &quot;MISMATCH&quot;: 1,
+      &quot;UNKNOWN&quot;: 2,
+      &quot;INVALID_INPUT&quot;: 0
+    },
+    &quot;result_count&quot;: 4,
+    &quot;source_count&quot;: 5
+  },
+  &quot;sources&quot;: [
+    {
+      &quot;file&quot;: &quot;feed.csv&quot;,
+      &quot;kind&quot;: &quot;feed&quot;,
+      &quot;sha256&quot;: &quot;69d58ba2c1129c3374363d6f26feff761428a78e389891a8fbbcaa220fef77fe&quot;
+    },
+    {
+      &quot;file&quot;: &quot;ambiguous.html&quot;,
+      &quot;kind&quot;: &quot;saved_html&quot;,
+      &quot;sha256&quot;: &quot;9c606c74f8184d99eafbb20c04fb92237cb67b9cb843769c681a67d8896db730&quot;
+    },
+    {
+      &quot;file&quot;: &quot;match.html&quot;,
+      &quot;kind&quot;: &quot;saved_html&quot;,
+      &quot;sha256&quot;: &quot;1ffd253d70ed3d7c0e6bf55ac0549a3d1682099f72716c26fb55461b4273bce4&quot;
+    },
+    {
+      &quot;file&quot;: &quot;mismatch.html&quot;,
+      &quot;kind&quot;: &quot;saved_html&quot;,
+      &quot;sha256&quot;: &quot;3fd912581738517783fa13b650d44d211f23255900949333cc7602e9f8d691f9&quot;
+    },
+    {
+      &quot;file&quot;: &quot;unknown.html&quot;,
+      &quot;kind&quot;: &quot;saved_html&quot;,
+      &quot;sha256&quot;: &quot;efce99920652439ef64057c658a5f5b33b1a6c4cf8065d881d1199a004e7f1d3&quot;
+    }
+  ],
+  &quot;results&quot;: [
+    {
+      &quot;row&quot;: 2,
+      &quot;id&quot;: &quot;match&quot;,
+      &quot;link&quot;: &quot;https://shop.test/products/match&quot;,
+      &quot;feed&quot;: {
+        &quot;price_raw&quot;: &quot;19.90&quot;,
+        &quot;currency_raw&quot;: &quot;EUR&quot;,
+        &quot;availability_raw&quot;: &quot;in_stock&quot;,
+        &quot;price&quot;: &quot;19.9&quot;,
+        &quot;currency&quot;: &quot;EUR&quot;,
+        &quot;availability&quot;: &quot;in_stock&quot;
+      },
+      &quot;fields&quot;: [],
+      &quot;evidence&quot;: {
+        &quot;page_file&quot;: &quot;match.html&quot;,
+        &quot;sha256&quot;: &quot;1ffd253d70ed3d7c0e6bf55ac0549a3d1682099f72716c26fb55461b4273bce4&quot;,
+        &quot;jsonld_blocks&quot;: 1,
+        &quot;parse_warnings&quot;: [],
+        &quot;product_path&quot;: &quot;$jsonld[1]&quot;,
+        &quot;product_identity&quot;: {
+          &quot;field&quot;: &quot;sku&quot;,
+          &quot;value&quot;: &quot;match&quot;
+        },
+        &quot;offer_path&quot;: &quot;&lt;embedded&gt;&quot;,
+        &quot;structured_offer&quot;: {
+          &quot;price&quot;: &quot;19.9&quot;,
+          &quot;currency&quot;: &quot;EUR&quot;,
+          &quot;availability&quot;: &quot;in_stock&quot;,
+          &quot;price_source&quot;: &quot;Offer.price&quot;
+        }
+      },
+      &quot;status&quot;: &quot;MATCH&quot;
+    },
+    {
+      &quot;row&quot;: 3,
+      &quot;id&quot;: &quot;mismatch&quot;,
+      &quot;link&quot;: &quot;https://shop.test/products/mismatch&quot;,
+      &quot;feed&quot;: {
+        &quot;price_raw&quot;: &quot;10.00&quot;,
+        &quot;currency_raw&quot;: &quot;EUR&quot;,
+        &quot;availability_raw&quot;: &quot;in_stock&quot;,
+        &quot;price&quot;: &quot;10&quot;,
+        &quot;currency&quot;: &quot;EUR&quot;,
+        &quot;availability&quot;: &quot;in_stock&quot;
+      },
+      &quot;fields&quot;: [
+        &quot;price&quot;
+      ],
+      &quot;evidence&quot;: {
+        &quot;page_file&quot;: &quot;mismatch.html&quot;,
+        &quot;sha256&quot;: &quot;3fd912581738517783fa13b650d44d211f23255900949333cc7602e9f8d691f9&quot;,
+        &quot;jsonld_blocks&quot;: 1,
+        &quot;parse_warnings&quot;: [],
+        &quot;product_path&quot;: &quot;$jsonld[1]&quot;,
+        &quot;product_identity&quot;: {
+          &quot;field&quot;: &quot;sku&quot;,
+          &quot;value&quot;: &quot;mismatch&quot;
+        },
+        &quot;offer_path&quot;: &quot;&lt;embedded&gt;&quot;,
+        &quot;structured_offer&quot;: {
+          &quot;price&quot;: &quot;12&quot;,
+          &quot;currency&quot;: &quot;EUR&quot;,
+          &quot;availability&quot;: &quot;in_stock&quot;,
+          &quot;price_source&quot;: &quot;Offer.price&quot;
+        }
+      },
+      &quot;status&quot;: &quot;MISMATCH&quot;
+    },
+    {
+      &quot;row&quot;: 4,
+      &quot;id&quot;: &quot;ambiguous&quot;,
+      &quot;link&quot;: &quot;https://shop.test/products/ambiguous&quot;,
+      &quot;feed&quot;: {
+        &quot;price_raw&quot;: &quot;4.00&quot;,
+        &quot;currency_raw&quot;: &quot;EUR&quot;,
+        &quot;availability_raw&quot;: &quot;out_of_stock&quot;,
+        &quot;price&quot;: &quot;4&quot;,
+        &quot;currency&quot;: &quot;EUR&quot;,
+        &quot;availability&quot;: &quot;out_of_stock&quot;
+      },
+      &quot;fields&quot;: [],
+      &quot;evidence&quot;: {
+        &quot;page_file&quot;: &quot;ambiguous.html&quot;,
+        &quot;sha256&quot;: &quot;9c606c74f8184d99eafbb20c04fb92237cb67b9cb843769c681a67d8896db730&quot;,
+        &quot;jsonld_blocks&quot;: 1,
+        &quot;parse_warnings&quot;: [],
+        &quot;product_path&quot;: &quot;$jsonld[1]&quot;,
+        &quot;product_identity&quot;: {
+          &quot;field&quot;: &quot;sku&quot;,
+          &quot;value&quot;: &quot;ambiguous&quot;
+        },
+        &quot;reason&quot;: &quot;ambiguous_offer_match&quot;,
+        &quot;offer_count&quot;: 2
+      },
+      &quot;status&quot;: &quot;UNKNOWN&quot;
+    },
+    {
+      &quot;row&quot;: 5,
+      &quot;id&quot;: &quot;unknown&quot;,
+      &quot;link&quot;: &quot;https://shop.test/products/unknown&quot;,
+      &quot;feed&quot;: {
+        &quot;price_raw&quot;: &quot;3.00&quot;,
+        &quot;currency_raw&quot;: &quot;EUR&quot;,
+        &quot;availability_raw&quot;: &quot;in_stock&quot;,
+        &quot;price&quot;: &quot;3&quot;,
+        &quot;currency&quot;: &quot;EUR&quot;,
+        &quot;availability&quot;: &quot;in_stock&quot;
+      },
+      &quot;fields&quot;: [],
+      &quot;evidence&quot;: {
+        &quot;page_file&quot;: &quot;unknown.html&quot;,
+        &quot;sha256&quot;: &quot;efce99920652439ef64057c658a5f5b33b1a6c4cf8065d881d1199a004e7f1d3&quot;,
+        &quot;jsonld_blocks&quot;: 0,
+        &quot;parse_warnings&quot;: [],
+        &quot;reason&quot;: &quot;no_exact_product_match&quot;,
+        &quot;matching_product_count&quot;: 0
+      },
+      &quot;status&quot;: &quot;UNKNOWN&quot;
+    }
+  ]
+}</pre></details></body></html>

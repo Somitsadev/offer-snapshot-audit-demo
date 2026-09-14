@@ -1,0 +1,182 @@
+{
+  "version": "0.1.0-beta.1",
+  "schema_version": "1.0",
+  "generated_at_utc": "2026-09-14T09:15:37.250052Z",
+  "capture_caveat": "Offline analysis of supplied files only. No network fetch, JavaScript execution, visual checkout test, geo/device test, or Google approval check was performed.",
+  "input_contract": {
+    "columns": [
+      "id",
+      "link",
+      "price",
+      "currency",
+      "availability"
+    ],
+    "page_mapping": "pages/<id>.html",
+    "availability_case_normalization": "feed values are trimmed/lowercased; page schema.org values are mapped per documented aliases"
+  },
+  "limits": {
+    "max_feed_bytes": 10485760,
+    "max_page_bytes": 5242880,
+    "max_total_page_bytes": 104857600,
+    "max_rows": 5000,
+    "max_jsonld_bytes": 2097152
+  },
+  "summary": {
+    "counts": {
+      "MATCH": 1,
+      "MISMATCH": 1,
+      "UNKNOWN": 2,
+      "INVALID_INPUT": 0
+    },
+    "result_count": 4,
+    "source_count": 5
+  },
+  "sources": [
+    {
+      "file": "feed.csv",
+      "kind": "feed",
+      "sha256": "69d58ba2c1129c3374363d6f26feff761428a78e389891a8fbbcaa220fef77fe"
+    },
+    {
+      "file": "ambiguous.html",
+      "kind": "saved_html",
+      "sha256": "9c606c74f8184d99eafbb20c04fb92237cb67b9cb843769c681a67d8896db730"
+    },
+    {
+      "file": "match.html",
+      "kind": "saved_html",
+      "sha256": "1ffd253d70ed3d7c0e6bf55ac0549a3d1682099f72716c26fb55461b4273bce4"
+    },
+    {
+      "file": "mismatch.html",
+      "kind": "saved_html",
+      "sha256": "3fd912581738517783fa13b650d44d211f23255900949333cc7602e9f8d691f9"
+    },
+    {
+      "file": "unknown.html",
+      "kind": "saved_html",
+      "sha256": "efce99920652439ef64057c658a5f5b33b1a6c4cf8065d881d1199a004e7f1d3"
+    }
+  ],
+  "results": [
+    {
+      "row": 2,
+      "id": "match",
+      "link": "https://shop.test/products/match",
+      "feed": {
+        "price_raw": "19.90",
+        "currency_raw": "EUR",
+        "availability_raw": "in_stock",
+        "price": "19.9",
+        "currency": "EUR",
+        "availability": "in_stock"
+      },
+      "fields": [],
+      "evidence": {
+        "page_file": "match.html",
+        "sha256": "1ffd253d70ed3d7c0e6bf55ac0549a3d1682099f72716c26fb55461b4273bce4",
+        "jsonld_blocks": 1,
+        "parse_warnings": [],
+        "product_path": "$jsonld[1]",
+        "product_identity": {
+          "field": "sku",
+          "value": "match"
+        },
+        "offer_path": "<embedded>",
+        "structured_offer": {
+          "price": "19.9",
+          "currency": "EUR",
+          "availability": "in_stock",
+          "price_source": "Offer.price"
+        }
+      },
+      "status": "MATCH"
+    },
+    {
+      "row": 3,
+      "id": "mismatch",
+      "link": "https://shop.test/products/mismatch",
+      "feed": {
+        "price_raw": "10.00",
+        "currency_raw": "EUR",
+        "availability_raw": "in_stock",
+        "price": "10",
+        "currency": "EUR",
+        "availability": "in_stock"
+      },
+      "fields": [
+        "price"
+      ],
+      "evidence": {
+        "page_file": "mismatch.html",
+        "sha256": "3fd912581738517783fa13b650d44d211f23255900949333cc7602e9f8d691f9",
+        "jsonld_blocks": 1,
+        "parse_warnings": [],
+        "product_path": "$jsonld[1]",
+        "product_identity": {
+          "field": "sku",
+          "value": "mismatch"
+        },
+        "offer_path": "<embedded>",
+        "structured_offer": {
+          "price": "12",
+          "currency": "EUR",
+          "availability": "in_stock",
+          "price_source": "Offer.price"
+        }
+      },
+      "status": "MISMATCH"
+    },
+    {
+      "row": 4,
+      "id": "ambiguous",
+      "link": "https://shop.test/products/ambiguous",
+      "feed": {
+        "price_raw": "4.00",
+        "currency_raw": "EUR",
+        "availability_raw": "out_of_stock",
+        "price": "4",
+        "currency": "EUR",
+        "availability": "out_of_stock"
+      },
+      "fields": [],
+      "evidence": {
+        "page_file": "ambiguous.html",
+        "sha256": "9c606c74f8184d99eafbb20c04fb92237cb67b9cb843769c681a67d8896db730",
+        "jsonld_blocks": 1,
+        "parse_warnings": [],
+        "product_path": "$jsonld[1]",
+        "product_identity": {
+          "field": "sku",
+          "value": "ambiguous"
+        },
+        "reason": "ambiguous_offer_match",
+        "offer_count": 2
+      },
+      "status": "UNKNOWN"
+    },
+    {
+      "row": 5,
+      "id": "unknown",
+      "link": "https://shop.test/products/unknown",
+      "feed": {
+        "price_raw": "3.00",
+        "currency_raw": "EUR",
+        "availability_raw": "in_stock",
+        "price": "3",
+        "currency": "EUR",
+        "availability": "in_stock"
+      },
+      "fields": [],
+      "evidence": {
+        "page_file": "unknown.html",
+        "sha256": "efce99920652439ef64057c658a5f5b33b1a6c4cf8065d881d1199a004e7f1d3",
+        "jsonld_blocks": 0,
+        "parse_warnings": [],
+        "reason": "no_exact_product_match",
+        "matching_product_count": 0
+      },
+      "status": "UNKNOWN"
+    }
+  ]
+}
