@@ -18,4 +18,6 @@ See the [input contract](docs/input-contract.md) and [expected results](docs/exp
 
 To share feedback, use [New issue > Synthetic workflow feedback](https://github.com/Somitsadev/offer-snapshot-audit-demo/issues/new/choose). Tell us what you do now to compare a product list with a shop page, and whether preparing these files for an offline report would be useful. Use invented values only; do not upload files or include private data, live URLs, credentials or customer information.
 
+For help with an existing Python script, see my [Python bug-fix offer on Fiverr](https://www.fiverr.com/somitsadev/fix-one-small-python-bug-in-your-existing-code). One bug, a test and a short explanation for USD 50, with one revision and 3-day delivery. Message me there before ordering so I can check the scope.
+
 Offer Snapshot Audit is not affiliated with Google or Merchant Center.
