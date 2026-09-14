@@ -1,1 +1,5 @@
-
+id,link,price,currency,availability
+match,https://shop.test/products/match,19.90,EUR,in_stock
+mismatch,https://shop.test/products/mismatch,10.00,EUR,in_stock
+ambiguous,https://shop.test/products/ambiguous,4.00,EUR,out_of_stock
+unknown,https://shop.test/products/unknown,3.00,EUR,in_stock
